@@ -17,6 +17,7 @@
     "typescript": "^3.7.5"
   },
   "scripts": {
+    "dev": "npm run start",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
