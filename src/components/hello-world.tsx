@@ -3,10 +3,12 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 class HelloWorld extends Component<any> {
   render():JSX.Element{
-    console.log(this.props);
     return (
       <div>
-          Hello world
+        HelloWorld
+         {
+           this.props.children
+         }
       </div>
     )
   }

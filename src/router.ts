@@ -11,7 +11,11 @@ export const routes: IRoute[] = [
   {
     path: '/hello',
     auth: false,
-    component: lazy(() => import('./components/hello-world'))
+    component: lazy(() => import('./components/hello-world')),
+    children:[{
+      path: '/hello/404',
+      component: lazy(() => import('./components/errorPage')),
+    }]
   }
 ]
 
