@@ -3,10 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Router from './components/router'
 import * as serviceWorker from './serviceWorker';
-
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+import reducer from './store'
+let store = createStore(reducer)
 ReactDOM.render(
   <React.StrictMode>
-    <Router></Router>
+    <Provider store={ store }>
+      <Router></Router>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

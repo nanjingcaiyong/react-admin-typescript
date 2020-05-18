@@ -43,8 +43,14 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-### `npm run react-router-dom`
+### `npm i react-router-dom`
 
 + 下面两个都会默认依赖react-router
 + react-router-dom 用于浏览器
 + react-router-native 用于React Native
+
+### 使用Redux
+
++ npm i redux react-redux @types/redux  @types/react-redux
++ npm i redux-devtools -D
++ npm i redux-actions @types/redux-actions   简化redux的使用

@@ -1,11 +1,21 @@
 // 必须声明一个React
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
-class HelloWorld extends Component<any> {
+import { connect, MapStateToProps, MapDispatchToPropsFunction } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import user,{ IUser } from './../store/user'
+type IProps = {
+  actions:any,
+  data:IUser
+}
+// Component<IProps,IState>
+class HelloWorld extends Component<IProps> {
   render():JSX.Element{
+    console.log('props', this.props)
+    const { actions, data } = this.props
     return (
-      <div>
-        HelloWorld
+      <div onClick={()=>{actions.getUserInfo(1)}}>
+        HelloWorld { data.name }
          {
            this.props.children
          }
@@ -13,9 +23,23 @@ class HelloWorld extends Component<any> {
     )
   }
 }
+
+const mapStateToProps: MapStateToProps<{data:IUser},any,any> = (state:{user:IUser}): { data:IUser } => {
+  console.log('state',state)
+  return {
+    data: state.user
+  }
+}
+const mapDispatchToProps: MapDispatchToPropsFunction<any,any> = (dispatch:any) => {
+  return {
+    // 使用bindActionCreators简化actions注册，否则UI中需要用到的action都需要在此逐个注册
+    actions: bindActionCreators(user.actions,dispatch)
+  }
+}
 /**
  * 1、使用withRouter，当前组件props中会绑定history、location、match三个属性
  * 2、组件不仅需要继承Component，而且需要给Props的约束Component<any>3
  * 3、配合Redux的connect()或mobx的inject()使用,withRouter(connect(Component)),withRouter(inject(Component))
  */
-export default withRouter(HelloWorld)
+// connect方法的作用是连接react组件和redux store，也就是说通过connect方法子组件可以获取store中的state和dispatch。
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(HelloWorld))
