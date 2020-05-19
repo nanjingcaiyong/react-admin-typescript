@@ -54,3 +54,11 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 + npm i redux react-redux @types/redux  @types/react-redux
 + npm i redux-devtools -D
 + npm i redux-actions @types/redux-actions   简化redux的使用
+
+### `npm i redux-actions`
+
++ typesafe-actions 是一款专门为 ts 设计的库，能够帮助开发者减少 redux 样板代码，并自动为开发者创建好类型
+
+### `npm i redux-observable`
+
+### `npm i axios`

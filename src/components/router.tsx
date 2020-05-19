@@ -26,14 +26,14 @@ class Router extends Component {
         strict={true}
         render={(props: RouteComponentProps & {}) => {
           const { search } = props.location;
-          const component = <item.component {...props} {...qs.parse(search)} />;
+          const component = <item.component {...props} {...qs.parse(search)} name="张三"/>;
           return (
             <Suspense fallback={<div>正在加载...</div>}>
               {
                 // 判断是否具有子元素
                 hasChildren ? (
                   (item.children || []).map((t: IRoute, j: number) => (
-                    <item.component key={j} {...props}>
+                    <item.component key={j} {...props} name="张三">
                       {this.recombination(t, j)}
                     </item.component>
                   ))

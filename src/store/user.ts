@@ -22,7 +22,8 @@ const states:IState = {
 }
 
 const actions = {
-  getUserInfo: (id: number):number => id
+  getUserInfo: (id: number):number => id,
+  setUserInfo: (...args:any[])=> { console.log('SSSSSSSSSSSSSSSSSSSSSSS') }
 }
 
 const reducers = {
@@ -35,7 +36,6 @@ const reducers = {
     };
   }
 }
-
 export default {
   actions: createActions(actions),
   reducers: handleActions(reducers, {name:'超人',id:0})

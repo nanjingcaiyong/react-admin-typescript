@@ -8,14 +8,20 @@ type IProps = {
   actions:any,
   data:IUser
 }
+type IState = {
+  welcome:string
+}
 // Component<IProps,IState>
-class HelloWorld extends Component<IProps> {
+class HelloWorld extends Component<IProps,IState> {
+  readonly state = {
+    welcome:'Hello'
+  }
   render():JSX.Element{
     console.log('props', this.props)
     const { actions, data } = this.props
     return (
       <div onClick={()=>{actions.getUserInfo(1)}}>
-        HelloWorld { data.name }
+         { this.state.welcome} { data.name }
          {
            this.props.children
          }
@@ -23,9 +29,18 @@ class HelloWorld extends Component<IProps> {
     )
   }
 }
+type IOwnProps = {
+  children:any,
+  history:any,
+  location:any,
+  match:any,
+  name:string,
+  staticContext:any
+}
 
-const mapStateToProps: MapStateToProps<{data:IUser},any,any> = (state:{user:IUser}): { data:IUser } => {
-  console.log('state',state)
+// MapStateToProps<mapStateToProps返回值类型，OwnProps类型，mapStateToProps入参state类型>
+const mapStateToProps: MapStateToProps<{data:IUser}, IOwnProps, {user:IUser}> = (state:{user:IUser},ownProps:IOwnProps): { data:IUser } => {
+  console.log('state',state,ownProps)
   return {
     data: state.user
   }
