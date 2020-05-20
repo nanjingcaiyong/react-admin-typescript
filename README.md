@@ -45,19 +45,21 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### `npm i react-router-dom`
 
-+ 下面两个都会默认依赖react-router
-+ react-router-dom 用于浏览器
-+ react-router-native 用于React Native
+- 下面两个都会默认依赖 react-router
+- react-router-dom 用于浏览器
+- react-router-native 用于 React Native
 
-### 使用Redux
+### 使用 Redux
 
-+ npm i redux react-redux @types/redux  @types/react-redux
-+ npm i redux-devtools -D
-+ npm i redux-actions @types/redux-actions   简化redux的使用
+- npm i redux react-redux @types/redux @types/react-redux
+- npm i redux-devtools -D
+- npm i redux-actions @types/redux-actions 简化 redux 的使用
 
-### `npm i redux-actions`
+### `npm i redux-actions@4.4.2`
 
-+ typesafe-actions 是一款专门为 ts 设计的库，能够帮助开发者减少 redux 样板代码，并自动为开发者创建好类型
+- 使用 typesafe-actions 替换 redux-actions
+- 安装最新版本会有问题暂使用 4.4.2
+- typesafe-actions 是一款专门为 ts 设计的库，能够帮助开发者减少 redux 样板代码，并自动为开发者创建好类型
 
 ### `npm i redux-observable`
 

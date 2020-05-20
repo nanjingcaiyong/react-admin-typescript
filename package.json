@@ -21,10 +21,9 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
-    "redux-actions": "^2.6.5",
     "redux-observable": "^1.2.0",
-    "typesafe-actions": "^5.1.0",
-    "typescript": "^3.7.5"
+    "typesafe-actions": "^4.4.2",
+    "typescript": "^3.9.3"
   },
   "scripts": {
     "dev": "npm run start",
