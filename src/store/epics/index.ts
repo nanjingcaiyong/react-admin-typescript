@@ -1,7 +1,5 @@
-import { combineEpics } from 'redux-observable';
-import weatherEpic from "./user";
-const epics = combineEpics(
-  ...weatherEpic,
-);
+import { combineEpics } from "redux-observable";
+import userGetEpic from "./user";
+const epics = combineEpics(...userGetEpic);
 
 export default epics;

@@ -7,7 +7,7 @@ import { getUser } from "../../api";
 
 type Action = ActionType<typeof actions>;
 
-const weatherGetEpic: Epic<Action, Action, any> = (action$, store) => {
+const userGetEpic: Epic<Action, Action, any> = (action$, store) => {
   return action$.pipe(
     filter(isActionOf(actions.getUserList)),
     mergeMap((action) => {
@@ -20,4 +20,4 @@ const weatherGetEpic: Epic<Action, Action, any> = (action$, store) => {
   );
 };
 
-export default [weatherGetEpic];
+export default [userGetEpic];
