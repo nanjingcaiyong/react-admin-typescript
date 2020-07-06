@@ -64,3 +64,40 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 ### `npm i redux-observable`
 
 ### `npm i axios`
+
+### 配置less module
+
+- npm i less less-loader --D
+
+- 生成webpack配置项文件  npm run eject
+
+- config/webpack.config.js添加如下代码
+
+```js
+const lessRegex = /\.less$/;
+const lessModuleRegex = /\.module\.less$/;
+……
+{
+  test: lessRegex,
+  exclude: lessModuleRegex,
+  use: getStyleLoaders(
+    {
+      importLoaders: 3,
+      sourceMap: isEnvProduction && shouldUseSourceMap,
+    },
+    'less-loader'
+  ),
+  sideEffects: true,
+},
+{
+  test: lessModuleRegex,
+  use: getStyleLoaders({
+      importLoaders: 3,
+      sourceMap: isEnvProduction && shouldUseSourceMap,
+      modules: true,
+      getLocalIdent: getCSSModuleLocalIdent,
+  },
+  'less-loader'
+  ),
+},
+```
