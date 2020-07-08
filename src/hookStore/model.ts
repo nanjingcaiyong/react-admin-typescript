@@ -17,6 +17,7 @@ class Model<T,S> {
       };
     });
   }
+  // 自定义hook
   public useModel() {
     const [, setState] = useState();
     // 使用useEffect实现发布订阅

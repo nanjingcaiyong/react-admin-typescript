@@ -8,14 +8,24 @@ export interface IRoute {
 }
 
 export const routes: IRoute[] = [
+  // {
+  //   path: '/hello',
+  //   auth: false,
+  //   component: lazy(() => import('./components/hello-world')),
+  //   children:[{
+  //     path: '/hello/404',
+  //     component: lazy(() => import('./components/errorPage')),
+  //   }]
+  // },
   {
-    path: '/hello',
+    path:'/counter',
     auth: false,
-    component: lazy(() => import('./components/hello-world')),
-    children:[{
-      path: '/hello/404',
-      component: lazy(() => import('./components/errorPage')),
-    }]
-  }
+    component:lazy(()=> import('./components/counter'))
+  },
+  {
+    path: '/timer',
+    auth:false,
+    component:lazy(()=> import('./components/timer'))
+  },
 ]
 

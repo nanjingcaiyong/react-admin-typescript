@@ -65,7 +65,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### `npm i axios`
 
-### 配置less module
+### 配置less module(为了兼容antd的less文件，项目中样式文件以*.module.less命名)
 
 - npm i less less-loader --D
 
@@ -100,4 +100,16 @@ const lessModuleRegex = /\.module\.less$/;
   'less-loader'
   ),
 },
+```
+
+### Antd的按需加载 `npm i babel-plugin-import --D`
+
+- 项目根目录新建babel.config.js文件
+
+```js
+module.exports = {
+  plugins: [
+    ["import", { libraryName: "antd", style: true}] // `style: true` 会加载 less 文件
+  ]
+};
 ```
