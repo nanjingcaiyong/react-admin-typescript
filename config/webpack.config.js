@@ -112,6 +112,9 @@ module.exports = function(webpackEnv) {
         loader: require.resolve(preProcessor),
         options: {
           sourceMap: isEnvProduction && shouldUseSourceMap,
+          lessOptions:{
+            javascriptEnabled: true
+          }
         },
       });
     }
@@ -447,6 +450,9 @@ module.exports = function(webpackEnv) {
                 {
                   importLoaders: 2,
                   sourceMap: isEnvProduction && shouldUseSourceMap,
+                  modules:{
+                    getLocalIdent: getCSSModuleLocalIdent,
+                  }
                 },
                 'less-loader'
               ),

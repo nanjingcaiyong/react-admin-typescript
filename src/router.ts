@@ -3,29 +3,20 @@ import { lazy } from 'react'
 export interface IRoute {
   path: string,
   auth: boolean,
-  component: any,
+  component?: any,
   children?: any []
 }
 
 export const routes: IRoute[] = [
-  // {
-  //   path: '/hello',
-  //   auth: false,
-  //   component: lazy(() => import('./components/hello-world')),
-  //   children:[{
-  //     path: '/hello/404',
-  //     component: lazy(() => import('./components/errorPage')),
-  //   }]
-  // },
   {
-    path:'/counter',
+    path: '/',
     auth: false,
-    component:lazy(()=> import('./components/counter'))
-  },
-  {
-    path: '/timer',
-    auth:false,
-    component:lazy(()=> import('./components/timer'))
-  },
+    component:lazy(()=> import('./layout/main')),
+    children:[{
+      path:'/home',
+      auth:false,
+      component:lazy(()=> import('./pages/Home'))
+    }]
+  }
 ]
 

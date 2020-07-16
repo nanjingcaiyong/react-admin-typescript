@@ -109,7 +109,40 @@ const lessModuleRegex = /\.module\.less$/;
 ```js
 module.exports = {
   plugins: [
+    ["import", { libraryName: "antd", style: 'css'}] // `style: true` 会加载 less 文件
+  ]
+};
+```
+
+- 配置config文件
+
+```js
+  const getStyleLoaders = (cssOptions, preProcessor) => {
+    const loaders = [
+      ……
+    ].filter(Boolean);
+    if (preProcessor) {
+      loaders.push({
+        loader: require.resolve(preProcessor),
+        options: {
+          sourceMap: isEnvProduction && shouldUseSourceMap,
+          // 加入lessOptions
+          lessOptions:{
+            javascriptEnabled: true
+          }
+        },
+      });
+    }
+    return loaders;
+  };
+```
+
+```js
+module.exports = {
+  plugins: [
     ["import", { libraryName: "antd", style: true}] // `style: true` 会加载 less 文件
   ]
 };
 ```
+
+- 创建apollo客户端
